@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"COGS - Retail Operations - HB",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"RETAIL OPERATIONS-HB\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

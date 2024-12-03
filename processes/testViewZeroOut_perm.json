@@ -1,0 +1,15 @@
+{
+	"@type":"Process",
+	"Name":"testViewZeroOut_perm",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"testViewZeroOut_perm.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "172415078800091",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

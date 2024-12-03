@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"showdown.cube.data.copy.intercube.optimized",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"showdown.cube.data.copy.intercube.optimized.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pParallelThreads",
+			"Prompt":"REQUIRED: Maximum number of threads to run in parallel",
+			"Value":12,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pLogOutput",
+			"Prompt":"OPTIONAL: Write parameters and action summary to server message log (Boolean True = 1)",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800079",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

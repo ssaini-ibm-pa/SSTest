@@ -1,0 +1,104 @@
+#region Prolog
+### Global Variables
+StringGlobalVariable('sProcessReturnCode');
+NumericGlobalVariable('nProcessReturnCode');
+nProcessReturnCode = 0;
+
+### Constants - Generic
+cThisProcName        = GetProcessName();
+cProcLogParams       = Expand('pParallelThreads:%pParallelThreads%');
+cUser                         = TM1User();
+cTimeStamp              = TimSt( Now, '\Y\m\d\h\i\s' );
+cRandomInt               = NumberToString( INT( RAND( ) * 1000 ));
+cViewSrc                   = cThisProcName | '_' | cTimeStamp | '_' | cRandomInt;
+cSubsetSrc                 = cViewSrc;
+cViewTgt                   = 'Target_' | cViewSrc;
+cSubsetTgt                 = cViewTgt;
+
+cMsgErrorLevel        = 'ERROR';
+cMsgErrorContent     = 'User:%cUserName% Process:%cThisProcName% ErrorMessage:%sMessage%';
+cMsgInfoLevel          = 'INFO';
+cMsgInfoContent 	   = 'User:%cUserName% Process:%cThisProcName% Message:%sMessage%';
+cMsgInfoParam		   = 'Process:%cThisProcName% run with parameters %sProcLogParams%.';
+nErrors                       = 0;
+cStrictErrorHandling = 0;
+
+### Constants - Specific
+nModDividend = 0;
+nModulus = pParallelThreads;
+
+### LogOutput parameters
+If( pLogOutput = 1 );
+   sMessage = Expand('Process starting');
+   LogOutput( cMsgInfoLevel, Expand( cMsgInfoContent ) ); 
+   LogOutput( cMsgInfoLevel, Expand( cMsgInfoParam ) );   
+EndIf;
+
+### Process log
+sDataDir = GetProcessErrorFileDirectory() | '..';
+sLogPath = sDataDir | '/Log/';
+#sLogFileName = cThisProcName | '.txt';
+sLogFileName = 'one_asciioutput_file.txt';
+sLogFileFullPath = sLogPath | sLogFileName;
+nStartTime = Now; sStartTime = TimSt( nStartTime, '\d-\m-\y \h:\i:\s');
+
+#Not able to write to the same log file of the child process
+#AsciiOutputOpen( sLogFileFullPath, 0 );
+#AsciiOutput( sLogFileFullPath, 'Timestamp', 'ProcessName','ExecutedBy','Status', 'Parameters', 'RunDuration');
+#AsciiOutputOpen( sLogFileFullPath, 1 );
+#AsciiOutput( sLogFileFullPath, sStartTime, cThisProcName, cUser, 'Starting', cProcLogParams, '');
+
+### Parallel processing
+sMonthList = '1:Jan,2:Feb,3:Mar,4:Apr,5:May,6:Jun,7:Jul,8:Aug,9:Sep,10:Oct,11:Nov,12:Dec';
+
+nMonthIndex = 1;
+While (nMonthIndex <= 12);
+    sRemainder = NumberToString(Mod(nModDividend, nModulus));
+    sLockObj = 'Lock' | sRemainder;
+    
+    sTargetMonth = Subst(sMonthList, If(Long(NumberToString(nMonthIndex)) = 1, Scan(NumberToString(nMonthIndex), sMonthList) + 2, Scan(NumberToString(nMonthIndex), sMonthList) + 3), 3);
+    sJobID = RunProcess('showdown.cube.data.copy.intercube',
+        'pSourceYear', '2003', 
+        'pTargetYear', '2004', 
+        'pMonth', sTargetMonth,
+        'pLockObj', sLockObj,
+        'pLogOutput', pLogOutput
+    );
+
+    #Activate WaitForAllJobs if you want to simulate async processes to be executed in line as if ExecuteProcess has been used
+    #sRetWait = WaitForAllJobs(sJobID);
+    sRetStatus = GetJobStatus(sJobID);
+    If( sRetStatus <> ProcessExitNormal() & sRetStatus <> ProcessExecutionInProgress() );
+        nErrors = nErrors + 1;
+        sMessage = Expand('Finished execution but failed with error, perform error handling for the following month: %pMonth%');
+        LogOutput( cMsgErrorLevel , Expand( cMsgErrorContent ) );
+    EndIf;
+    
+    nModDividend = nModDividend + 1;
+    nMonthIndex = nMonthIndex + 1;
+End;
+
+#endregion
+#region Epilog
+### Return code & final error message handling
+If( nErrors > 0 );
+    sMessage = 'The process incurred at least 1 error. Please see above lines in this file for more details.';
+    nProcessReturnCode = 0;
+    LogOutput( cMsgErrorLevel, Expand( cMsgErrorContent ) );
+    sProcessReturnCode = Expand( '%sProcessReturnCode% Process:%cThisProcName% completed with errors. Check tm1server.log for details.' );
+    IF(cStrictErrorHandling = 1); 
+        ProcessQuit; 
+    EndIf;
+Else;
+    sProcessAction = Expand( 'Process:%cThisProcName% successfully executed.' );
+    sProcessReturnCode = Expand( '%sProcessReturnCode% %sProcessAction%' );
+    nProcessReturnCode = 1;
+    If( pLogOutput = 1 );
+        LogOutput(cMsgInfoLevel, Expand( sProcessAction ) );   
+    EndIf;
+EndIf;
+
+### Process log
+nEndTime = Now; sEndTime = TimSt( nEndTime, '\d-\m-\y \h:\i:\s');
+nDuration = Round ((nEndTime - nStartTime) / 0.000011574074074074 );
+#endregion

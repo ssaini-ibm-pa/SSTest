@@ -1,0 +1,26 @@
+{
+	"@type":"MDXView",
+	"Name":"VIEW1",
+	"MDX@Code.link":"VIEW1.mdx",
+	"Meta": {
+		"Aliases": {
+			"[DIMD].[DIMD]": "MEMBER_NAME",
+			"[DIMC].[DIMC]": "MEMBER_NAME"
+		},
+		"ExpandAboves": {
+			"[DIMA].[DIMA]": false,
+			"[DIMD].[DIMD]": false,
+			"[DIMC].[DIMC]": false,
+			"[DIMB].[DIMB]": false,
+			"[DIME].[DIME]": false
+		},
+		"ContextSets": {
+			"[DIMA].[DIMA]": {
+				"Expression": "{[DIMA].[DIMA].MEMBERS}"
+			},
+			"[DIMB].[DIMB]": {
+				"Expression": "{[DIMB].[DIMB].MEMBERS}"
+			}
+		}
+	}
+}

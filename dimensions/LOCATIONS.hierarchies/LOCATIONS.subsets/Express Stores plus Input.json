@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Express Stores plus Input",
+	"Expression":"{UNION(\r{TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"52116800*\")},\r{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Plan_StoreType] = \"Express\")}\r)}\r"
+}

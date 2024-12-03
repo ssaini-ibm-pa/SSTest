@@ -1,0 +1,20 @@
+{
+	"@type":"Subset",
+	"Name":"BdgRptDist-Ovrh Locations - TEST ONLY",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-OPERATIONS - RETAIL-D2C-FRANCHISE')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB RETAIL')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB DIR-TO-CONSUMER')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB FRANCHISE')"
+		}
+	]
+}

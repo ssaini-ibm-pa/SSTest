@@ -1,0 +1,11 @@
+#region Prolog
+
+IF (pLockObj @<>'');
+           SYNCHRONIZED (pLockObj);
+ENDIF;
+
+AsciiOutputOpen( 'testAsciiOutputB_output.txt', 1 );
+AsciiOutput( 'testAsciiOutputB_output.txt', 'pLockObj: ', pLockObj);
+
+
+#endregion

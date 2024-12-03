@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Letters",
+	"Hierarchies@Code.links":
+	[
+		"Letters.hierarchies/Letters.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Letters')/Hierarchies('Letters')"
+	}
+}

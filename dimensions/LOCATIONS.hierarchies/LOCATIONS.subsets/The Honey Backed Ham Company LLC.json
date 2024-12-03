@@ -1,0 +1,26 @@
+{
+	"@type":"Subset",
+	"Name":"The Honey Backed Ham Company LLC",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('THE HONEY BAKED HAM COMPANY LLC')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB RETAIL')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB DIR-TO-CONSUMER')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB OVERHEAD')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB FRANCHISE')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB OTHER')"
+		}
+	]
+}

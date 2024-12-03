@@ -1,0 +1,17 @@
+{
+	"@type":"Subset",
+	"Name":"TOTAL FRAN DISTRICTS STORES",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TOTAL FRAN DISTRICTS - STORE')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('FR. DISTRICT - KILBURN - STORE')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('FR. DISTRICT - COOPER - STORE')"
+		}
+	]
+}

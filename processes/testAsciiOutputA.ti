@@ -1,0 +1,28 @@
+#region Prolog
+
+nModDividend = 0;
+
+i = 1;
+While (i <= 12);
+    sRemainder = NumberToString(Mod(nModDividend, pParallelThreads));
+    AsciiOutput( 'testAsciiOutputA_remainder.txt', 'nModDividend: ', NumberToString(nModDividend), 'pParallelThreads: ', NumberToString(pParallelThreads), 'Remainder: ', sRemainder);
+    sLockObj = 'Lock' | sRemainder;
+    AsciiOutputOpen( 'testAsciiOutputA_output.txt', 1 );
+    AsciiOutput( 'testAsciiOutputA_output.txt', 'pLockObj: ', sLockObj);
+    sJobID = RunProcess('testAsciiOutputB');
+    sRetStatus = GetJobStatus(sJobID);
+    
+    If( sRetStatus <> ProcessExitNormal() & sRetStatus <> ProcessExecutionInProgress() );
+        #nErrors = nErrors + 1;
+        AsciiOutputOpen( 'testAsciiOutputA_error.txt', 1 );
+        AsciiOutput( 'testAsciiOutputA_error.txt', 'job error');
+        #LogOutput( cMsgErrorLevel , Expand( cMsgErrorContent ) );
+    EndIf;
+
+    #WaitForAllJobs(sJobID);
+    
+    nModDividend = nModDividend + 1;
+    i = i + 1;
+    
+End;
+#endregion

@@ -1,0 +1,20 @@
+{
+	"@type":"Subset",
+	"Name":"PLDist_FY24-Franchise",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB FRANCHISE')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('FRANCHISE OPERATIONS')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('HB DIR-TO-CONSUMER')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('52315899')"
+		}
+	]
+}

@@ -1,0 +1,9 @@
+#region Prolog
+
+ViewCreateByMDX('L & N', 'view1', 'SELECT {[Numbers].[Numbers].[1]} ON 0, {[Letters].[Letters].[A]} ON 1 FROM [L & N]' , 0);
+ViewZeroOut('L & N','view1');
+
+#endregion
+#region Epilog
+ViewDestroy('L & N','view1');
+#endregion

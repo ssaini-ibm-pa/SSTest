@@ -1,0 +1,15 @@
+{
+	"@type":"Process",
+	"Name":"testLoop1",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"testLoop1.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "172415078800089",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

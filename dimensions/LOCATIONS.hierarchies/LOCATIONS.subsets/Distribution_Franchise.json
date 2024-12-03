@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Distribution_Franchise",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Franchise_Distribution] = \"Y\")}, DESC)}"
+}

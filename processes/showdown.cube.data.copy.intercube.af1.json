@@ -1,0 +1,47 @@
+{
+	"@type":"Process",
+	"Name":"showdown.cube.data.copy.intercube.af1",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"showdown.cube.data.copy.intercube.af1.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSourceYear",
+			"Prompt":"REQUIRED: Year to copy",
+			"Value":"2003",
+			"Type":"String"
+		},
+		{
+			"Name":"pTargetYear",
+			"Prompt":"REQUIRED: Year to load",
+			"Value":"2004",
+			"Type":"String"
+		},
+		{
+			"Name":"pMonth",
+			"Prompt":"REQUIRED: Month to load",
+			"Value":"Jan",
+			"Type":"String"
+		},
+		{
+			"Name":"pLockObj",
+			"Prompt":"OPTIONAL: Force serial execution to allow parallel processing without exceeding all available resources (cores)",
+			"Value":"0",
+			"Type":"String"
+		},
+		{
+			"Name":"pLogOutput",
+			"Prompt":"OPTIONAL: Write parameters and action summary to server message",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800078",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

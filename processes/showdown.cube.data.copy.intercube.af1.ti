@@ -1,0 +1,24 @@
+#region Prolog
+### Global Variables
+StringGlobalVariable('sProcessReturnCode');
+NumericGlobalVariable('nProcessReturnCode');
+nProcessReturnCode = 0;
+
+### Synchronized process execution to allow parallel processing without exceeding all available ressources (cores)
+If (pLockObj @<>'');
+	Synchronized(pLockObj);
+EndIf;
+
+
+sLogFileName = 'ti2.txt';
+sLogFileName2 = 'ti2_other' | pLockObj | '.txt';
+
+AsciiOutputOpen( sLogFileName, 3 );
+AsciiOutput( sLogFileName, 'sTargetMonth:', pMonth, 'sLockObj:', pLockObj);
+
+AsciiOutputOpen( sLogFileName2, 3 );
+AsciiOutput( sLogFileName2, 'sTargetMonth:', pMonth, 'sLockObj:', pLockObj);
+
+
+
+#endregion

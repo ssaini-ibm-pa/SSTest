@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"HB Retail incl CA",
+	"Expression":"{UNION(\r     {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [Locations] )}, \"HB RETAIL\")}, ALL, RECURSIVE )}, 0)},\r     {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [Locations] )}, \"HBH California LLC\")}, ALL, RECURSIVE )}, 0)}\r)}\r"
+}

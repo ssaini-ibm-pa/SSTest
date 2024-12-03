@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"test1",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('DIMA')"
+		},
+		{
+			"@id":"Dimensions('DIMB')"
+		},
+		{
+			"@id":"Dimensions('DIMC')"
+		}
+	],
+	"Views@Code.links":[]
+}

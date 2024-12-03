@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Tier 1 + 2 + 3",
+	"Alias":"Name",
+	"Expression":"{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Tier] = \"1\" \rOR [LOCATIONS].[Tier] = \"2\" \rOR [LOCATIONS].[TIER] = \"3\" )}\r"
+}

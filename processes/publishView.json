@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"publishView",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"publishView.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCubeName",
+			"Prompt":"cubeName",
+			"Value":"plan_budgetPlan",
+			"Type":"String"
+		},
+		{
+			"Name":"pViewName",
+			"Prompt":"viewName",
+			"Value":"Budget Input Details - PrivTest1",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800076",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

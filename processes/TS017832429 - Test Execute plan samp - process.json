@@ -1,0 +1,31 @@
+{
+	"@type":"Process",
+	"Name":"TS017832429 - Test Execute plan samp - process",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"TS017832429 - Test Execute plan samp - process.ti",
+	"DataSource":
+	{
+		"Type":"ODBC",
+		"dataSourceNameForServer":"PlanSamp-load",
+		"dataSourceNameForClient":"PlanSamp-load",
+		"userName":"admin1",
+		"password":"Skittles2805!",
+		"query":"SELECT \r\n\tcast( convert(int, cast(cast(ORDER_DATE as date) as datetime)) as nvarchar(100))\r\n FROM [gosales].[ORDER_HEADER] OFFSET 0 ROWS FETCH NEXT 100000 ROWS ONLY"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"order_date",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "1732032646000",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": [
+		"VarType=32\fColType=827\f"
+	]
+}

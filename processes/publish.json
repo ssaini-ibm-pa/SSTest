@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"publish",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"publish.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCubeName",
+			"Prompt":"cubeName",
+			"Value":"0",
+			"Type":"String"
+		},
+		{
+			"Name":"pViewName",
+			"Prompt":"viewName",
+			"Value":"0",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800075",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

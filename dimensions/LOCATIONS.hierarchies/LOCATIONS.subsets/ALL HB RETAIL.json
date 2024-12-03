@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"ALL HB RETAIL",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"hb retail\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

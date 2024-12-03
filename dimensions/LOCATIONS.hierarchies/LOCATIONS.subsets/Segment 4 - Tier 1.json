@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Segment 4 - Tier 1",
+	"Alias":"Name",
+	"Expression":"\r(FILTER( {FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Segment] = \"4\")}, [LOCATIONS].[Tier] = \"1\"))}\r"
+}

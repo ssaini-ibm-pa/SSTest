@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Distribution_CoOwned",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[CoOwned_Distribution] = \"Y\")}, DESC)}"
+}

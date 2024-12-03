@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"HBH California LLC - N Level",
+	"Alias":"Name",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"hbh california llc\")}, ALL, RECURSIVE )}, 0)}"
+}

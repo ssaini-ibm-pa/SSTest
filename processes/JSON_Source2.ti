@@ -1,0 +1,19 @@
+#region Prolog
+
+#DataSourceType                = 'JSON';
+#DataSourceJsonRootPointer     = '/value';
+#DataSourceJsonVariableMapping = JsonAdd( DataSourceJsonVariableMapping, 'vName', StringToJson( '/name' ));
+#DatasourceNameForServer       = 'jilldata.json';
+
+#endregion
+#region Data
+
+#vSalary = JsonToString( vSalary );
+#vSalary2 = StringToNumber( vSalary );
+
+
+#vName = JsonToString( vName );
+ASCIIOutput( 'test_read.txt', NumberToString(vSalary));
+
+
+#endregion

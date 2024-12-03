@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"DIMC",
+	"Hierarchies@Code.links":
+	[
+		"DIMC.hierarchies/DIMC.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('DIMC')/Hierarchies('DIMC')"
+	}
+}

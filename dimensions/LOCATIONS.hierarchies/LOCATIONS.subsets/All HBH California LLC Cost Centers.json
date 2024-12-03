@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All HBH California LLC Cost Centers",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"HBH California LLC\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

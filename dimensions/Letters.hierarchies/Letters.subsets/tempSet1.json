@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"tempSet1",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {[Letters].[Letters].MEMBERS}"
+}

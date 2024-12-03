@@ -1,0 +1,5 @@
+#region Prolog
+#PublishSubset( 'Letters', 'tempSet1', 1 );
+PublishView( pCubeName, pViewName, 1, 1 );
+
+#endregion

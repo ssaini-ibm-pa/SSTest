@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All-HB RETAIL and D2C",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( { DRILLDOWNMEMBER( { DRILLDOWNMEMBER( {TM1SubsetBasis()}, {[LOCATIONS].[HB RETAIL]} ) }, {[LOCATIONS].[HB DIR-TO-CONSUMER]} ) }, ALL, RECURSIVE )}, 0)}"
+}

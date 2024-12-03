@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"HB Franchise Active Stores wRollups",
+	"Alias":"Name",
+	"Expression":"{TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"HB FRANCHISE ACTIVE STORES\")}, ALL, RECURSIVE )}"
+}

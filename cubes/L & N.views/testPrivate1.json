@@ -1,0 +1,13 @@
+{
+	"@type":"MDXView",
+	"Name":"testPrivate1",
+	"MDX@Code.link":"testPrivate1.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[Numbers].[Numbers]": false,
+			"[Letters].[Letters]": false
+		},
+		"ContextSets": {}
+	}
+}

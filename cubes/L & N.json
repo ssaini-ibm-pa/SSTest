@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"L & N",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Letters')"
+		},
+		{
+			"@id":"Dimensions('Numbers')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"L & N.views/default.json",
+		"L & N.views/testPrivate1.json"
+	]
+}

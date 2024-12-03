@@ -1,0 +1,10 @@
+{
+	"@type":"Chore",
+	"Name":"rrr",
+	"StartTime":"2024-11-20T23:57:08Z",
+	"DSTSensitive":false,
+	"Active":false,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P0DT00H00M00S",
+	"Tasks":[]
+}

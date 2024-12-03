@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Z-All N Locations",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( [LOCATIONS] )}, 0)}, ASC)}"
+}

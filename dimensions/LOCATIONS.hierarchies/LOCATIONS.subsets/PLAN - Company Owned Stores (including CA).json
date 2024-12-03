@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"PLAN - Company Owned Stores (including CA)",
+	"Alias":"Name",
+	"Expression":"{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Plan_StoreType] = \"CompanyOwned\")}"
+}

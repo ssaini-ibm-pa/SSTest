@@ -1,0 +1,23 @@
+{
+	"@type":"Subset",
+	"Name":"Dyn-PLdistFY22-TEST Ovrhd",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-ALL OVERHEAD')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-RETAIL OVERHEAD-HB')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB DIR-TO-CONSUMER INDIRECT OVERHEAD')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB OVERHEAD')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-FRANCHISE OVERHEAD')"
+		}
+	]
+}

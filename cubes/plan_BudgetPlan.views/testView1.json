@@ -1,0 +1,35 @@
+{
+	"@type":"MDXView",
+	"Name":"testView1",
+	"MDX@Code.link":"testView1.mdx",
+	"Meta": {
+		"Aliases": {
+			"[plan_chart_of_accounts].[plan_chart_of_accounts]": "AccountName",
+			"[plan_version].[plan_version]": "VersionName",
+			"[plan_department].[plan_department]": "Department",
+			"[plan_business_unit].[plan_business_unit]": "BusinessUnit"
+		},
+		"ExpandAboves": {
+			"[plan_source].[plan_source]": false,
+			"[plan_chart_of_accounts].[plan_chart_of_accounts]": false,
+			"[plan_version].[plan_version]": false,
+			"[plan_department].[plan_department]": false,
+			"[plan_business_unit].[plan_business_unit]": false,
+			"[plan_exchange_rates].[plan_exchange_rates]": false,
+			"[plan_time].[plan_time]": false
+		},
+		"ContextSets": {
+			"[plan_chart_of_accounts].[plan_chart_of_accounts]": {
+				"SubsetName": "Default",
+				"IsPublic": true
+			},
+			"[plan_business_unit].[plan_business_unit]": {
+				"SubsetName": "Default",
+				"IsPublic": true
+			},
+			"[plan_exchange_rates].[plan_exchange_rates]": {
+				"Expression": "{[plan_exchange_rates].[plan_exchange_rates].MEMBERS}"
+			}
+		}
+	}
+}

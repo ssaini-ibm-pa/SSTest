@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zzDataManager",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('20000000')"
+		}
+	]
+}

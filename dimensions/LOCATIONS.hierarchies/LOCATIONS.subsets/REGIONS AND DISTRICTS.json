@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"REGIONS AND DISTRICTS",
+	"Expression":"UNION({FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Districts] = \"REGION\")},{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Districts] = \"DISTRICT\")})"
+}

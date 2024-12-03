@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"DISTRICT LIST",
+	"Expression":"{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Districts] = \"DISTRICT\")}"
+}

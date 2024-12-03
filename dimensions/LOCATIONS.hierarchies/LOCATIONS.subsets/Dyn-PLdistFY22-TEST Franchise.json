@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"Dyn-PLdistFY22-TEST Franchise",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB DIR-TO-CONSUMER')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('TM1 admin test-HB FRANCHISE')"
+		}
+	]
+}

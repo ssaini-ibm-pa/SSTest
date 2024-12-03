@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Level 0 plus TTL Honey Baked Ham",
+	"Alias":"Name",
+	"Expression":"{UNION(\r{TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, 'THE HONEY BAKED HAM COMPANY LLC')},\r{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( [LOCATIONS] )}, 0)}, ASC)}\r)}\r"
+}

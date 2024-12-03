@@ -1,0 +1,41 @@
+{
+	"@type":"Subset",
+	"Name":"BdgRptDist-Revenue_TEMP",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 1 - MICHAEL WARD - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 2 - MATT REDER - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 3 - ANDY ANDURLAKIS - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 5 - LISA GRAY - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 6 - MUNDI SILVERS - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 7 - HAROLD MCCLELLAN - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 8 - KIM GEBHARDT - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 9 - JOE STURINO - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 11 - DOUG KREY - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('DISTRICT 13 - ERIC DELBRUGGE - TOTAL FY23')"
+		},
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('REGION EAST - MICHELLE ANDERSON - TOTAL FY23')"
+		}
+	]
+}

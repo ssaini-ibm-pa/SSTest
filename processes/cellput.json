@@ -1,0 +1,15 @@
+{
+	"@type":"Process",
+	"Name":"cellput",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"cellput.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "172415078800063",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

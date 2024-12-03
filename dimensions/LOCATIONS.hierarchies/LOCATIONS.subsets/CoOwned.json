@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"CoOwned",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"coowned\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

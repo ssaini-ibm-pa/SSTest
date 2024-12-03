@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"CUBE1",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('DIMA')"
+		},
+		{
+			"@id":"Dimensions('DIMB')"
+		},
+		{
+			"@id":"Dimensions('DIMC')"
+		},
+		{
+			"@id":"Dimensions('DIMD')"
+		},
+		{
+			"@id":"Dimensions('DIME')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"CUBE1.views/VIEW1.json"
+	]
+}

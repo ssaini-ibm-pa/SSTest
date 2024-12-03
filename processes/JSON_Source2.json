@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"JSON_Source2",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"JSON_Source2.ti",
+	"DataSource":
+	{
+		"Type":"JSON",
+		"dataSourceNameForServer":"jilldataX.json",
+		"jsonRootPointer":"/value",
+		"jsonVariableMapping":"{\"vSalary\":\"/salary\"}"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vSalary",
+			"Type":"Numeric",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "1732820680000",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": [
+		"IgnoredInputVarName=id\fVarType=33\fColType=1165\fElement=id",
+		"IgnoredInputVarName=vName\fVarType=32\fColType=1165\fElement=name",
+		"IgnoredInputVarName=username\fVarType=32\fColType=1165\fElement=username",
+		"IgnoredInputVarName=email\fVarType=32\fColType=1165\fElement=email",
+		"VarType=33\fColType=827\f"
+	]
+}

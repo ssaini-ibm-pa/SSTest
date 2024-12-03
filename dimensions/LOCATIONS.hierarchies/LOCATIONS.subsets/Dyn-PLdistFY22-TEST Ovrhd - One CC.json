@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"Dyn-PLdistFY22-TEST Ovrhd - One CC",
+	"Alias":"Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('LOCATIONS')/Hierarchies('LOCATIONS')/Elements('20500609')"
+		}
+	]
+}

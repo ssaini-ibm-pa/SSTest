@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zz_DATA - Zero Out SKU_3P_Wkv2_ZeroOut2",
+	"Expression":"{TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1DRILLDOWNMEMBER( {TM1SubsetBasis()}, ALL, RECURSIVE )}, ALL, RECURSIVE )}, 0)}"
+}

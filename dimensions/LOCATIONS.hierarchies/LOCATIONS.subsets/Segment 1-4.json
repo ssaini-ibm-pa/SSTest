@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Segment 1-4",
+	"Alias":"Name",
+	"Expression":"{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Segment] = \"1\"\rOR [LOCATIONS].[Segment] = \"2\"\rOR [LOCATIONS].[Segment] = \"3\"\rOR [LOCATIONS].[Segment] = \"4\" )}\r"
+}

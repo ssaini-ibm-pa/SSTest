@@ -1,0 +1,23 @@
+{
+	"@type":"Process",
+	"Name":"testAsciiOutputA",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"testAsciiOutputA.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pParallelThreads",
+			"Prompt":"pThreads",
+			"Value":12,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800087",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

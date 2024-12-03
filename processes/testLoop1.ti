@@ -1,0 +1,12 @@
+#region Prolog
+
+i = 1;
+While (i <= 12);
+
+    AsciiOutputOpen( 'testLoop1.txt', 1 );
+    AsciiOutput( 'testLoop1.txt', 'test');
+    i = i + 1;
+End;
+
+
+#endregion

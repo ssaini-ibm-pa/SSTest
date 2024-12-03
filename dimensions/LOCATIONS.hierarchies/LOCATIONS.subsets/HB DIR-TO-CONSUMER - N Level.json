@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"HB DIR-TO-CONSUMER - N Level",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"HB DIR-TO-CONSUMER\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

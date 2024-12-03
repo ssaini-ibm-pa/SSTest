@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Franchise Stores plus Input",
+	"Alias":"Name",
+	"Expression":"{UNION(\r{TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"20500700*\")},\r{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Plan_StoreType] = \"FRANCHISE\")}\r)}\r"
+}

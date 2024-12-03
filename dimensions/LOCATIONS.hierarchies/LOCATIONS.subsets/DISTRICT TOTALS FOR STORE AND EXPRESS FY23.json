@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"DISTRICT TOTALS FOR STORE AND EXPRESS FY23",
+	"Expression":"{TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"district totals for store and express fy23\")}, ALL, RECURSIVE )}"
+}

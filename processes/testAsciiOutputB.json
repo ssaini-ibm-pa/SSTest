@@ -1,0 +1,23 @@
+{
+	"@type":"Process",
+	"Name":"testAsciiOutputB",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"testAsciiOutputB.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pLockObj",
+			"Prompt":"",
+			"Value":"0",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "172415078800088",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Franchise Only",
+	"Alias":"Name",
+	"Expression":"{FILTER( {TM1SUBSETALL( [LOCATIONS] )}, [LOCATIONS].[Plan_StoreType] = \"FRANCHISE\")}"
+}

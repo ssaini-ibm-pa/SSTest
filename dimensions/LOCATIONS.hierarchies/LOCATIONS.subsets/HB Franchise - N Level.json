@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"HB Franchise - N Level",
+	"Alias":"Name",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1DRILLDOWNMEMBER( {TM1FILTERBYPATTERN( {TM1SUBSETALL( [LOCATIONS] )}, \"HB FRANCHISE\")}, ALL, RECURSIVE )}, 0)}, ASC)}"
+}

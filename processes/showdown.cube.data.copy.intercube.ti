@@ -1,0 +1,135 @@
+#region Prolog
+### Global Variables
+StringGlobalVariable('sProcessReturnCode');
+NumericGlobalVariable('nProcessReturnCode');
+nProcessReturnCode = 0;
+
+### Synchronized process execution to allow parallel processing without exceeding all available ressources (cores)
+If (pLockObj @<>'');
+	Synchronized(pLockObj);
+EndIf;
+
+### Constants - Generic
+cThisProcName        = GetProcessName();
+cProcLogParams       = Expand('pSourceYear:%pSourceYear%, pTargetYear:%pTargetYear%, pMonth:%pMonth%, pLockObj:%pLockObj%, pLogOutput:%pLogOutput%');
+cUser                         = TM1User();
+cTimeStamp              = TimSt( Now, '\Y\m\d\h\i\s' );
+cRandomInt               = NumberToString( INT( RAND( ) * 1000 ));
+cViewSrc                   = cThisProcName | '_' | cTimeStamp | '_' | cRandomInt | '_' | pMonth | '-' | pSourceYear;
+cSubsetSrc                 = cViewSrc;
+cViewTgt                   = 'Target_' | cThisProcName | '_' | cTimeStamp | '_' | cRandomInt | '_' | pMonth | '-' | pTargetYear;
+cSubsetTgt                 = cViewTgt;
+
+cMsgErrorLevel        = 'ERROR';
+cMsgErrorContent     = 'User:%cUserName% Process:%cThisProcName% ErrorMessage:%sMessage%';
+cMsgInfoLevel          = 'INFO';
+cMsgInfoContent 	   = 'User:%cUserName% Process:%cThisProcName% Message:%sMessage%';
+cMsgInfoParam		   = 'Process:%cThisProcName% run with parameters %sProcLogParams%.';
+nErrors                       = 0;
+cStrictErrorHandling = 0;
+
+### Constants - Specific
+cCubSrc = 'plan_BudgetPlan';
+splan_time_Src = pMonth | '-' | pSourceYear;
+splan_time_Tgt = pMonth | '-' | pTargetYear;
+splan_version_Src = 'FY '| pSourceYear | ' Budget';
+splan_version_Tgt = 'FY '| pTargetYear | ' Budget';
+
+### LogOutput parameters
+If( pLogOutput = 1 );
+   sMessage = Expand('Process starting');
+   LogOutput( cMsgInfoLevel, Expand( cMsgInfoContent ) ); 
+   LogOutput( cMsgInfoLevel, Expand( cMsgInfoParam ) );   
+EndIf;
+
+### Process log
+sDataDir = GetProcessErrorFileDirectory() | '..';
+sLogPath = sDataDir | '/Log/';
+#sLogFileName = cThisProcName |'_'| pMonth | '.txt';
+sLogFileName = 'one_asciioutput_file.txt';
+sLogFileFullPath = sLogPath | sLogFileName;
+nStartTime = Now; sStartTime = TimSt( nStartTime, '\d-\m-\y \h:\i:\s');
+#AsciiOutputOpen( sLogFileFullPath, 0 );
+#AsciiOutput( sLogFileFullPath, 'Timestamp', 'ProcessName','ExecutedBy','Status', 'Parameters', 'RunDuration');
+AsciiOutputOpen( sLogFileFullPath, 1 );
+AsciiOutput( sLogFileFullPath, sStartTime, cThisProcName, cUser, 'Starting', cProcLogParams, '');
+
+### ViewZeroOut
+sMdx_Tgt='
+SELECT 
+    NON EMPTY {[plan_time].[plan_time].['| splan_time_Tgt |']} ON 0, 
+    NON EMPTY {{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_chart_of_accounts].[plan_chart_of_accounts]) , 0)}}
+        *{{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_business_unit].[plan_business_unit]) , 0)}}
+        *{{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_department].[plan_department]) , 0)}} ON 1 
+FROM 
+    ['| cCubSrc |'] 
+WHERE (
+    [plan_version].[plan_version].['| splan_version_Tgt |'],
+    [plan_exchange_rates].[plan_exchange_rates].[local],
+    [plan_source].[plan_source].[input])';
+
+#Bug - ViewZeroOut the entire cube if <AsTemporary> = 1 
+#ViewCreateByMDX(cCubSrc, cViewTgt, sMdx_Tgt, 1);
+#Works fine when <AsTemporary> = 0
+ViewCreateByMDX(cCubSrc, cViewTgt, sMdx_Tgt, 0);
+ViewZeroOut(cCubSrc, cViewTgt);
+
+### Sleep to simulate load extension
+Sleep(2000);
+
+### View Source
+sMdx_Src='
+SELECT 
+    NON EMPTY {[plan_time].[plan_time].['| splan_time_Src |']} ON 0, 
+    NON EMPTY {{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_chart_of_accounts].[plan_chart_of_accounts]) , 0)}}
+        *{{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_business_unit].[plan_business_unit]) , 0)}}
+        *{{TM1FILTERBYLEVEL(TM1SUBSETALL([plan_department].[plan_department]) , 0)}} ON 1 
+FROM 
+    ['| cCubSrc |'] 
+WHERE (
+    [plan_version].[plan_version].['| splan_version_Src |'],
+    [plan_exchange_rates].[plan_exchange_rates].[local],
+    [plan_source].[plan_source].[input])';
+
+ViewCreateByMDX(cCubSrc, cViewSrc, sMdx_Src, 1);
+DatasourceType                     = 'VIEW';
+DatasourceNameForServer   = cCubSrc;
+DatasourceCubeView            = cViewSrc;
+
+#endregion
+#region Data
+#bUpdatable = CellIsUpdateable(cCubSrc, splan_version_Tgt, vplan_business_unit, vplan_department, vplan_chart_of_accounts, vplan_exchange_rates, vplan_source, splan_time_Tgt);
+#If(bUpdatable=1);
+#   CellPutN(NValue, cCubSrc, splan_version_Tgt, vplan_business_unit, vplan_department, vplan_chart_of_accounts, vplan_exchange_rates, vplan_source, splan_time_Tgt);
+#Endif;
+#endregion
+#region Epilog
+#Bug - ViewZeroOut the entire cube if <AsTemporary> = 1 
+#If( ViewExists( cCubSrc, cViewTgt ) = 1 );
+#    ViewDestroy( cCubSrc, cViewTgt );
+#Endif;
+
+### Return code & final error message handling
+If( nErrors > 0 );
+    sMessage = 'The process incurred at least 1 error. Please see above lines in this file for more details.';
+    nProcessReturnCode = 0;
+    LogOutput( cMsgErrorLevel, Expand( cMsgErrorContent ) );
+    sProcessReturnCode = Expand( '%sProcessReturnCode% Process:%cThisProcName% completed with errors. Check tm1server.log for details.' );
+    IF(cStrictErrorHandling = 1); 
+        ProcessQuit; 
+    EndIf;
+Else;
+    sProcessAction = Expand( 'Process:%cThisProcName% successfully executed.' );
+    sProcessReturnCode = Expand( '%sProcessReturnCode% %sProcessAction%' );
+    nProcessReturnCode = 1;
+    If( pLogOutput = 1 );
+        LogOutput(cMsgInfoLevel, Expand( sProcessAction ) );   
+    EndIf;
+EndIf;
+ 
+### Process log
+nEndTime = Now; sEndTime = TimSt( nEndTime, '\d-\m-\y \h:\i:\s');
+nDuration = Round ((nEndTime - nStartTime) / 0.000011574074074074 );
+AsciiOutputOpen( sLogFileFullPath, 1 );
+AsciiOutput( sLogFileFullPath, sEndTime, cThisProcName, cUser, 'Completed', cProcLogParams, NumberToString(nDuration));
+#endregion
